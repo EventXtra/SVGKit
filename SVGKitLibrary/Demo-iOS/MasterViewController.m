@@ -26,6 +26,13 @@
         // This file is still not fully supported, arc to is missing, but it has the evenodd in it
         @"fillrule-evenodd",
                         nil];
+    // Text
+    [self.sampleNames addObject:@"RotText"];
+    [self.sampleNames addObject:@"Floorplan_Zurich"];
+    // More svg spec examples
+    [self.sampleNames addObject:@"tspan02"];
+    [self.sampleNames addObject:@"Nested"];
+    [self.sampleNames addObject:@"Skew"];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

@@ -630,10 +630,12 @@
          */
         
         Node* parentElement = self.parentNode;
-        while( parentElement != nil
-              && ! [parentElement isKindOfClass:[SVGGElement class]]
-              && ! [parentElement isKindOfClass:[SVGSVGElement class]])
+        while(parentElement != nil)
         {
+            // SVGStylable
+            if ([parentElement respondsToSelector:@selector(style)]) {
+              break;
+            }
             parentElement = parentElement.parentNode;
         }
         

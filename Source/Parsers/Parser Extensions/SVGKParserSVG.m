@@ -17,6 +17,7 @@
 #import "SVGSwitchElement.h"
 #import "SVGTitleElement.h"
 #import "SVGTextElement.h"
+#import "SVGTSpanElement.h"
 #import "TinySVGTextAreaElement.h"
 
 #import "SVGDocument_Mutable.h"
@@ -46,6 +47,7 @@
                       [SVGSwitchElement class], @"switch",
                       [SVGTitleElement class], @"title",
                       [SVGTextElement class], @"text",
+                      [SVGTSpanElement class], @"tspan",
                       [TinySVGTextAreaElement class], @"textArea",
                       nil];
     }

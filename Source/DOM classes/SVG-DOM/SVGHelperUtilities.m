@@ -696,4 +696,120 @@
     }
 }
 
++ (void)applyStyleToShapeLayer:(CAShapeLayer *)layer withElement:(SVGElement *)svgElement
+{
+	CGAffineTransform transformAbsolute = CGAffineTransformIdentity; // TODO[pdr]  [self transformAbsoluteIncludingViewportForTransformableOrViewportEstablishingElement:svgElement];
+    
+	NSString* actualStroke = [svgElement cascadedValueForStylableProperty:@"stroke"];
+	NSString* actualStrokeWidth = [svgElement cascadedValueForStylableProperty:@"stroke-width"];
+	if( actualStroke.length > 0
+	   && (! [@"none" isEqualToString:actualStroke]) )
+	{
+		CGFloat strokeWidth = actualStrokeWidth.length > 0 ? [actualStrokeWidth floatValue] : 1.0f;
+		
+		/*
+		 We have to apply any scale-factor part of the affine transform to the stroke itself (this is bizarre and horrible, yes, but that's the spec for you!)
+		 */
+		CGSize fakeSize = CGSizeMake( strokeWidth, 0 );
+		fakeSize = CGSizeApplyAffineTransform( fakeSize, transformAbsolute );
+		layer.lineWidth = fakeSize.width;
+		
+		SVGColor strokeColorAsSVGColor = SVGColorFromString([actualStroke UTF8String]); // have to use the intermediate of an SVGColor so that we can over-ride the ALPHA component in next line
+		NSString* actualStrokeOpacity = [svgElement cascadedValueForStylableProperty:@"stroke-opacity"];
+		if( actualStrokeOpacity.length > 0 )
+			strokeColorAsSVGColor.a = (uint8_t) ([actualStrokeOpacity floatValue] * 0xFF);
+		
+		layer.strokeColor = CGColorWithSVGColor( strokeColorAsSVGColor );
+		
+		/**
+		 Line joins + caps: butt / square / miter
+		 */
+		NSString* actualLineCap = [svgElement cascadedValueForStylableProperty:@"stroke-linecap"];
+		NSString* actualLineJoin = [svgElement cascadedValueForStylableProperty:@"stroke-linejoin"];
+		NSString* actualMiterLimit = [svgElement cascadedValueForStylableProperty:@"stroke-miterlimit"];
+		if( actualLineCap.length > 0 )
+		{
+			if( [actualLineCap isEqualToString:@"butt"] )
+				layer.lineCap = kCALineCapButt;
+			else if( [actualLineCap isEqualToString:@"round"] )
+				layer.lineCap = kCALineCapRound;
+			else if( [actualLineCap isEqualToString:@"square"] )
+				layer.lineCap = kCALineCapSquare;
+		}
+		if( actualLineJoin.length > 0 )
+		{
+			if( [actualLineJoin isEqualToString:@"miter"] )
+				layer.lineJoin = kCALineJoinMiter;
+			else if( [actualLineJoin isEqualToString:@"round"] )
+				layer.lineJoin = kCALineJoinRound;
+			else if( [actualLineJoin isEqualToString:@"bevel"] )
+				layer.lineJoin = kCALineJoinBevel;
+		}
+		if( actualMiterLimit.length > 0 )
+		{
+			layer.miterLimit = [actualMiterLimit floatValue];
+		}
+	}
+	else
+	{
+		if( [@"none" isEqualToString:actualStroke] )
+		{
+			layer.strokeColor = nil; // This is how you tell Apple that the stroke is disabled; a strokewidth of 0 will NOT achieve this
+			layer.lineWidth = 0.0f; // MUST set this explicitly, or Apple assumes 1.0
+		}
+		else
+		{
+			layer.lineWidth = 1.0f; // default value from SVG spec
+		}
+	}
+	
+	
+	NSString* actualFill = [svgElement cascadedValueForStylableProperty:@"fill"];
+	if ( [actualFill hasPrefix:@"none"])
+	{
+		layer.fillColor = nil;
+	}
+	else if ( [actualFill hasPrefix:@"url"] )
+	{
+        /* TODO[pdr]
+         NSRange idKeyRange = NSMakeRange(5, actualFill.length - 6);
+         NSString* _fillId = [actualFill substringWithRange:idKeyRange];
+         
+         // Replace the return layer with a special layer using the URL fill
+         // fetch the fill layer by URL using the DOM
+         NSAssert( svgElement.rootOfCurrentDocumentFragment != nil, @"This SVG shape has a URL fill type; it needs to search for that URL (%@) inside its nearest-ancestor <SVG> node, but the rootOfCurrentDocumentFragment reference was nil (suggests the parser failed, or the SVG file is corrupt)", _fillId );
+         
+         SVGGradientElement* svgGradient = (SVGGradientElement*) [svgElement.rootOfCurrentDocumentFragment getElementById:_fillId];
+         NSAssert( svgGradient != nil, @"This SVG shape has a URL fill (%@), but could not find an XML Node with that ID inside the DOM tree (suggests the parser failed, or the SVG file is corrupt)", _fillId );
+         
+         //if( _shapeLayer != nil && svgGradient != nil ) //this nil check here is distrubing but blocking
+         {
+         CAGradientLayer *gradientLayer = [svgGradient newGradientLayerForObjectRect:layer.frame viewportRect:svgElement.rootOfCurrentDocumentFragment.viewBox];
+         
+         NSLog(@"DOESNT WORK, APPLE's API APPEARS BROKEN???? - About to mask layer frame (%@) with a mask of frame (%@)", NSStringFromCGRect(gradientLayer.frame), NSStringFromCGRect(layer.frame));
+         gradientLayer.mask =_shapeLayer;
+         [layer release]; // because it was created with a +1 retain count
+         
+         return gradientLayer;
+         }
+         */
+	}
+	else if( actualFill.length > 0 )
+	{
+		SVGColor fillColorAsSVGColor = SVGColorFromString([actualFill UTF8String]); // have to use the intermediate of an SVGColor so that we can over-ride the ALPHA component in next line
+		NSString* actualFillOpacity = [svgElement cascadedValueForStylableProperty:@"fill-opacity"];
+		if( actualFillOpacity.length > 0 )
+			fillColorAsSVGColor.a = (uint8_t) ([actualFillOpacity floatValue] * 0xFF);
+		
+		layer.fillColor = CGColorWithSVGColor(fillColorAsSVGColor);
+	}
+	else
+	{
+		
+	}
+    
+	NSString* actualOpacity = [svgElement cascadedValueForStylableProperty:@"opacity"];
+	layer.opacity = actualOpacity.length > 0 ? [actualOpacity floatValue] : 1; // unusually, the "opacity" attribute defaults to 1, not 0
+}
+
 @end

@@ -58,4 +58,6 @@ This method ONLY looks at current node to establish the above two things, to do 
 +(CGColorRef) parseStrokeForElement:(SVGElement *)svgElement;
 +(void) parsePreserveAspectRatioFor:(Element<SVGFitToViewBox>*) element;
 
++ (void)applyStyleToShapeLayer:(CAShapeLayer *)layer withElement:(SVGElement *)svgElement;
+
 @end

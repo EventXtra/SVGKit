@@ -212,7 +212,7 @@
     {
         NSUInteger indexInParent = [self.parentNode.childNodes.internalArray indexOfObject:self];
         
-        if( indexInParent >= [self.parentNode.childNodes length] )
+        if( (indexInParent+1) >= [self.parentNode.childNodes length] )
             return nil;
         else
             return [self.parentNode.childNodes item:indexInParent + 1];

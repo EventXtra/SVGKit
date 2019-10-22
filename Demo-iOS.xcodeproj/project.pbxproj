@@ -164,6 +164,11 @@
 		D0B21B552016BD8A00974D0A /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = D0B21B542016BD8A00974D0A /* heart.png */; };
 		D0D29C9220EC44080003CE47 /* M-to-S-to-T.svg in Resources */ = {isa = PBXBuildFile; fileRef = D0D29C9120EC44080003CE47 /* M-to-S-to-T.svg */; };
 		D0D29C9420EC441F0003CE47 /* M-to-S-to-T.png in Resources */ = {isa = PBXBuildFile; fileRef = D0D29C9320EC441F0003CE47 /* M-to-S-to-T.png */; };
+		D884D316235F457A000D3B46 /* RotText.svg in Resources */ = {isa = PBXBuildFile; fileRef = D884D30C235F4579000D3B46 /* RotText.svg */; };
+		D884D317235F457A000D3B46 /* Floorplan_Zurich.svg in Resources */ = {isa = PBXBuildFile; fileRef = D884D315235F4579000D3B46 /* Floorplan_Zurich.svg */; };
+		D884D319235F4751000D3B46 /* tspan02.svg in Resources */ = {isa = PBXBuildFile; fileRef = D884D318235F4751000D3B46 /* tspan02.svg */; };
+		D884D31C235F496D000D3B46 /* Skew.svg in Resources */ = {isa = PBXBuildFile; fileRef = D884D31A235F496D000D3B46 /* Skew.svg */; };
+		D884D31D235F496D000D3B46 /* Nested.svg in Resources */ = {isa = PBXBuildFile; fileRef = D884D31B235F496D000D3B46 /* Nested.svg */; };
 		FA5DF7261C434D54005CF231 /* CocoaLumberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5DF7241C434C58005CF231 /* CocoaLumberjack.framework */; };
 		FA5DF7271C434D54005CF231 /* CocoaLumberjack.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA5DF7241C434C58005CF231 /* CocoaLumberjack.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -218,18 +223,18 @@
 			remoteGlobalIDString = 825CDADC1BDA4D38003C1C12;
 			remoteInfo = "SVGKitFramework-tvOSTests";
 		};
-		6649E1091617574700AFE92A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6649E1021617574600AFE92A /* SVGKit-iOS.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6639618E16145D0400E58CCA;
-			remoteInfo = "SVGKit-iOS";
-		};
 		66E785A8171A1208001EF59D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6649E1021617574600AFE92A /* SVGKit-iOS.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 6639618D16145D0400E58CCA;
+			remoteInfo = "SVGKit-iOS";
+		};
+		D884D313235F4579000D3B46 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6649E1021617574600AFE92A /* SVGKit-iOS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6639618E16145D0400E58CCA;
 			remoteInfo = "SVGKit-iOS";
 		};
 		E203AF8F1A0AC14F000DE028 /* PBXContainerItemProxy */ = {
@@ -423,6 +428,11 @@
 		D0B21B542016BD8A00974D0A /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
 		D0D29C9120EC44080003CE47 /* M-to-S-to-T.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "M-to-S-to-T.svg"; sourceTree = "<group>"; };
 		D0D29C9320EC441F0003CE47 /* M-to-S-to-T.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "M-to-S-to-T.png"; sourceTree = "<group>"; };
+		D884D30C235F4579000D3B46 /* RotText.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = RotText.svg; path = text/RotText.svg; sourceTree = "<group>"; };
+		D884D315235F4579000D3B46 /* Floorplan_Zurich.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Floorplan_Zurich.svg; path = text/Floorplan_Zurich.svg; sourceTree = "<group>"; };
+		D884D318235F4751000D3B46 /* tspan02.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tspan02.svg; sourceTree = "<group>"; };
+		D884D31A235F496D000D3B46 /* Skew.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Skew.svg; sourceTree = "<group>"; };
+		D884D31B235F496D000D3B46 /* Nested.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Nested.svg; sourceTree = "<group>"; };
 		FA5DF7241C434C58005CF231 /* CocoaLumberjack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjack.framework; path = "3rd-party-frameworks/CocoaLumberjack-2.2.0/iOS/CocoaLumberjack.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -550,14 +560,17 @@
 				661EEA721ACC2FBB007176B0 /* cubic01.svg */,
 				661EEA731ACC2FBB007176B0 /* fillrule-evenodd.svg */,
 				661EEA741ACC2FBB007176B0 /* lingrad01.svg */,
+				D884D31B235F496D000D3B46 /* Nested.svg */,
 				661EEA751ACC2FBB007176B0 /* opacity01.svg */,
 				661EEA761ACC2FBB007176B0 /* pattern01.svg */,
 				661EEA771ACC2FBB007176B0 /* PreserveAspectRatio.svg */,
 				661EEA781ACC2FBB007176B0 /* quad01.svg */,
 				661EEA791ACC2FBB007176B0 /* radgrad01.svg */,
+				D884D31A235F496D000D3B46 /* Skew.svg */,
 				661EEA7A1ACC2FBB007176B0 /* StyleAttribute.svg */,
 				661EEA7B1ACC2FBB007176B0 /* text01.svg */,
 				661EEA7C1ACC2FBB007176B0 /* tspan01.svg */,
+				D884D318235F4751000D3B46 /* tspan02.svg */,
 			);
 			path = "www.w3.org-TR-SVG";
 			sourceTree = "<group>";
@@ -606,6 +619,7 @@
 		6649E1031617574600AFE92A /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				D884D314235F4579000D3B46 /* libSVGKit-iOS.2.1.0.a */,
 				E203AF901A0AC14F000DE028 /* SVGKit-iOS Tests.xctest */,
 				529DADF11C415FF00069B076 /* SVGKit.framework */,
 				529DADF31C415FF00069B076 /* SVGKitFramework-iOSTests.xctest */,
@@ -665,6 +679,8 @@
 		66E8627B1688BA510059C9C4 /* SVG */ = {
 			isa = PBXGroup;
 			children = (
+				D884D315235F4579000D3B46 /* Floorplan_Zurich.svg */,
+				D884D30C235F4579000D3B46 /* RotText.svg */,
 				662701991AD9567600B3AD03 /* Cycling_Lambie.svg */,
 				661EEAEC1ACC3471007176B0 /* Coin.png */,
 				661EEAED1ACC3471007176B0 /* Snowman.png */,
@@ -758,6 +774,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 661A0DBF161727CF008D5FBE;
@@ -819,6 +836,13 @@
 			remoteRef = 529DADF61C415FF00069B076 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		D884D314235F4579000D3B46 /* libSVGKit-iOS.2.1.0.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libSVGKit-iOS.2.1.0.a";
+			remoteRef = D884D313235F4579000D3B46 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		E203AF901A0AC14F000DE028 /* SVGKit-iOS Tests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
@@ -848,9 +872,11 @@
 				661EEAD31ACC3444007176B0 /* groups-and-layers-test.png in Resources */,
 				66E862701688BA0B0059C9C4 /* iPadDetailViewController.xib in Resources */,
 				66E862711688BA0B0059C9C4 /* iPhoneDetailViewController.xib in Resources */,
+				D884D31D235F496D000D3B46 /* Nested.svg in Resources */,
 				32D3D5F12176FA0700ED20D8 /* Mozilla_Firefox_logo_2013.png in Resources */,
 				6627019D1AD9579900B3AD03 /* Cycling_Lambie.png in Resources */,
 				666D03191AD07CC2006ED358 /* Reinel_compass_rose-simplified-more.png in Resources */,
+				D884D31C235F496D000D3B46 /* Skew.svg in Resources */,
 				66E862721688BA0B0059C9C4 /* MasterViewController_iPad.xib in Resources */,
 				66E862731688BA0B0059C9C4 /* MasterViewController_iPhone.xib in Resources */,
 				4FD822451AD058AB00E419D3 /* arcs02.png in Resources */,
@@ -863,6 +889,7 @@
 				667CA17C181D552A00E49B68 /* BlankMap-World6-Equirectangular.svg in Resources */,
 				66E862911688BA510059C9C4 /* australia_states_blank.svg in Resources */,
 				66E862921688BA510059C9C4 /* Blank_Map-Africa.svg in Resources */,
+				D884D317235F457A000D3B46 /* Floorplan_Zurich.svg in Resources */,
 				661EEAA71ACC3053007176B0 /* transformations.png in Resources */,
 				661EEAE41ACC3444007176B0 /* sakamura-default-fill-opacity-test.png in Resources */,
 				3242C36E217CF0CD0013765F /* Blocky.ttf in Resources */,
@@ -878,6 +905,7 @@
 				32D3D5EC2176E3FA00ED20D8 /* Mozilla_Firefox_logo_2013.svg in Resources */,
 				661EEACF1ACC3444007176B0 /* Coins.png in Resources */,
 				661EEAEA1ACC3444007176B0 /* uk-only.png in Resources */,
+				D884D316235F457A000D3B46 /* RotText.svg in Resources */,
 				66E862951688BA510059C9C4 /* Europe_states_reduced.svg in Resources */,
 				666D031F1AD080EF006ED358 /* Scale-Negative-Direction.svg in Resources */,
 				661EEADA1ACC3444007176B0 /* Map.png in Resources */,
@@ -912,6 +940,7 @@
 				66E862A11688BA510059C9C4 /* uk-only.svg in Resources */,
 				66E862A21688BA510059C9C4 /* voies.svg in Resources */,
 				661EEACD1ACC3444007176B0 /* BlankMap-World6-Equirectangular.png in Resources */,
+				D884D319235F4751000D3B46 /* tspan02.svg in Resources */,
 				661EEAEF1ACC3471007176B0 /* Snowman.png in Resources */,
 				66A9F4441688C66E000D4A2E /* RainbowWing.svg in Resources */,
 				663FCFF116C9AF1C00CCBFB3 /* gradients.svg in Resources */,
