@@ -216,6 +216,7 @@
     CTFontDescriptorRef descriptor = CTFontDescriptorCreateWithAttributes((__bridge CFDictionaryRef)attributes);
     CTFontRef fontRef = CTFontCreateWithFontDescriptor(descriptor, effectiveFontSize, NULL);
     UIFont *font = (__bridge_transfer UIFont *)fontRef;
+    CFRelease(descriptor);
     
     return font;
 }

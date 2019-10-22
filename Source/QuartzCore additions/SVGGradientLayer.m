@@ -56,8 +56,8 @@
     }
     
     CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)colors, locations_array);
-    CGColorSpaceRelease(colorSpace);
-    
+    CFAutorelease(gradient);
+
     return gradient;
 }
 
@@ -112,7 +112,6 @@
         
         CGContextDrawLinearGradient(ctx, gradient, gradientStartPoint,
                                     gradientEndPoint, options);
-        CGGradientRelease(gradient);
     };
     CGContextRestoreGState(ctx);
 }
@@ -196,7 +195,6 @@
             CGContextDrawRadialGradient(ctx, gradient,
                                         gradientEndPoint, focalRadius, gradientStartPoint,
                                         radius, options);
-            CGGradientRelease(gradient);
         } else {
             // draw the background
             CGColorRef backgroundColor = self.backgroundColor;

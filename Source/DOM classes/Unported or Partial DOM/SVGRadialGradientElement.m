@@ -117,7 +117,7 @@
     }
     
     CGPoint gradientStartPoint = startPoint;
-    CGPoint gradientEndPoint = endPoint;
+    CGPoint gradientEndPoint;
     
     // convert to percent
     CGPoint centerPoint = gradientStartPoint;
