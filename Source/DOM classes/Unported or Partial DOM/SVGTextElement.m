@@ -399,7 +399,16 @@
     CGPoint position = label.position;
     position.y += -(fontAscent-_baseFontAscent);
     label.position = position;
-    label.bounds = CGRectMake(0, -fontAscent, _currentTextPosition.x-xStart, fontAscent+fontDescent);
+    CGFloat labelWidth = _currentTextPosition.x - xStart;
+    label.bounds = CGRectMake(0, -fontAscent, labelWidth, fontAscent + fontDescent);
+    NSString *textAnchor = [self cascadedValueForStylableProperty:@"text-anchor"];
+    if ( [@"middle" isEqualToString:textAnchor] ) {
+        label.position = CGPointMake(xStart - labelWidth / 2, label.position.y);
+    } else if ( [@"end" isEqualToString:textAnchor] ) {
+        label.position = CGPointMake(xStart - labelWidth, label.position.y);
+    } else {
+        label.position = CGPointMake(xStart, label.position.y);
+    }
     return label;
 }
 
